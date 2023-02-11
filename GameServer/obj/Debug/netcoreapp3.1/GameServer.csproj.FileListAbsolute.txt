@@ -1,0 +1,14 @@
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.exe
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.deps.json
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.json
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.dev.json
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.dll
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.pdb
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.AssemblyReference.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfoInputs.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfo.cs
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CoreCompileInputs.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
