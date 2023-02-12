@@ -70,6 +70,7 @@ namespace GameServer.Net
                 case 1: //业务报文
                     BufferEntity ackPackage = new BufferEntity(buffer);
                     uSocket.SendACK(ackPackage, endPoint);
+                    Debug.Log("收到业务报文！");
                     HandleLogicPackage(ackPackage);
 
                     break;
@@ -97,6 +98,7 @@ namespace GameServer.Net
             if (dispatchNetEvent!=null)
             {
                 dispatchNetEvent(buffer);
+                Debug.Log("分发消息");
             }
             BufferEntity nextBuffer;
             if (waitHandle.TryRemove(handleSN+1, out nextBuffer))

@@ -33,7 +33,7 @@ namespace GameServer.Net
             {
                 try
                 {
-                    int length = await socket.SendAsync(data, data.Length);
+                    int length = await socket.SendAsync(data, data.Length, endPoint);
                     if (data.Length == length)
                     {
                         //完整的发送
@@ -51,6 +51,7 @@ namespace GameServer.Net
 
         public async void SendACK(BufferEntity ackPackage, IPEndPoint endPoint)
         {
+            Debug.Log("回复客户端收到消息了");
             Send(ackPackage.buffer, endPoint);
         }
 
@@ -61,6 +62,9 @@ namespace GameServer.Net
                 try
                 {
                     UdpReceiveResult result = await socket.ReceiveAsync();
+                    Debug.Log("接收到客户端的消息");
+                    awaitHandle.Enqueue(result);
+                    Receive();
                 }
                 catch (Exception ex)
                 {
@@ -93,6 +97,7 @@ namespace GameServer.Net
                             //创建客户端 给这个客户端分配会话ID
                             bufferEntity.session = sessionID;
                             CreateUClient(bufferEntity);
+                            Debug.Log($"创建客户端，会话ID是{sessionID}");
                         }
                         UClient targetClient;
                         //获取到客户端
@@ -110,8 +115,7 @@ namespace GameServer.Net
         void CreateUClient(BufferEntity buffer)
         {
             UClient client;
-            EndPoint endPoint = null;
-            if (clients.TryGetValue(buffer.session, out client))
+            if (!clients.TryGetValue(buffer.session, out client))
             {
                 client = new UClient(this, buffer.endPoint, 0, 0, buffer.session, dispatchNetEvent);
                 clients.TryAdd(buffer.session, client);

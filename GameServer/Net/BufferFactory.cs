@@ -21,6 +21,8 @@ namespace GameServer.Net
         {
             if (uCLient.isConnect)
             {
+                //按json格式打印json
+                Debug.Log(messageID, message);
                 BufferEntity buffer = new BufferEntity(uCLient.endPoint, uCLient.session,
                 0, 0, MessageType.Logic.GetHashCode(), messageID, ProtobufHelper.ToBytes(message));
                 uCLient.Send(buffer);

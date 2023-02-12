@@ -104,7 +104,7 @@ namespace GameServer.Net
             else
             {
                 //业务数据 追加进来
-                Array.Copy(proto, 0, data, proto.Length, 32);
+                Array.Copy(proto, 0, data, 32, proto.Length);
             }
             buffer = data;
             return data;
