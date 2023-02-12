@@ -12,3 +12,5 @@ D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.cspr
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.dll
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\LitJson.dll
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CopyComplete

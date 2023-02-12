@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System;
 
-namespace Game.Net
+namespace GameServer.Net
 {
     public class BufferEntity
     {
