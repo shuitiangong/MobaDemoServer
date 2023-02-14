@@ -49,7 +49,7 @@ namespace GameServer.Net
             }
         }
 
-        public async void SendACK(BufferEntity ackPackage, IPEndPoint endPoint)
+        public void SendACK(BufferEntity ackPackage, IPEndPoint endPoint)
         {
             Debug.Log("回复客户端收到消息了");
             Send(ackPackage.buffer, endPoint);

@@ -1,0 +1,13 @@
+D:\workspace\unity\GameServer\GameServer\bin\Debug\net462\GameServer.exe.config
+D:\workspace\unity\GameServer\GameServer\bin\Debug\net462\GameServer.exe
+D:\workspace\unity\GameServer\GameServer\bin\Debug\net462\GameServer.pdb
+D:\workspace\unity\GameServer\GameServer\bin\Debug\net462\LitJson.dll
+D:\workspace\unity\GameServer\GameServer\bin\Debug\net462\MySql.Data.dll
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.csproj.AssemblyReference.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.AssemblyInfoInputs.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.AssemblyInfo.cs
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.csproj.CoreCompileInputs.cache
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.csproj.CopyComplete
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.exe
+D:\workspace\unity\GameServer\GameServer\obj\Debug\net462\GameServer.pdb
