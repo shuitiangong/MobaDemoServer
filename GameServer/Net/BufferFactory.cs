@@ -31,5 +31,11 @@ namespace GameServer.Net
             
             return null;
         }
+
+        public static BufferEntity CreateAndSendPackage(BufferEntity req, IMessage message)
+        {
+            UClient client = GameMgr.uSocket.GetClient(req.session);
+            return CreateAndSendPackage(client, req.messageID, message);
+        }
     }
 }

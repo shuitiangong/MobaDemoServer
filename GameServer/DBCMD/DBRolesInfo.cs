@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ProtoMsg;
 using MobaServer;
-
+using GameServer.DBCMD;
+using MobaServer.MySql;
 
 public class DBRolesInfo : DBBase<DBRolesInfo>
 {

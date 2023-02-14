@@ -4,7 +4,6 @@ D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runt
 D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.runtimeconfig.dev.json
 D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.dll
 D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\GameServer.pdb
-D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.AssemblyReference.cache
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.GeneratedMSBuildEditorConfig.editorconfig
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfoInputs.cache
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.AssemblyInfo.cs
@@ -14,3 +13,5 @@ D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.pdb
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.genruntimeconfig.cache
 D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\LitJson.dll
 D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.CopyComplete
+D:\workspace\unity\GameServer\GameServer\bin\Debug\netcoreapp3.1\MySql.Data.dll
+D:\workspace\unity\GameServer\GameServer\obj\Debug\netcoreapp3.1\GameServer.csproj.AssemblyReference.cache

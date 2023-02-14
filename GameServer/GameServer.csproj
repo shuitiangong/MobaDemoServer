@@ -10,6 +10,10 @@
       <HintPath>Plugins\litjson\LitJson.dll</HintPath>
       <Private>true</Private>
     </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>C:\Users\Lacia\Desktop\素材\英雄联盟2 用户、角色、匹配、房间系统\Moba2课程资料\资料\MySQL数据库安装包\MySql.Data.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
   </ItemGroup>
 
 </Project>

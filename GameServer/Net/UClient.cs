@@ -71,7 +71,7 @@ namespace GameServer.Net
                     BufferEntity ackPackage = new BufferEntity(buffer);
                     uSocket.SendACK(ackPackage, endPoint);
                     Debug.Log("收到业务报文！");
-                    HandleLogicPackage(ackPackage);
+                    HandleLogicPackage(buffer);
 
                     break;
                 default:
