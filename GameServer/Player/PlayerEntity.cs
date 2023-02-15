@@ -1,4 +1,5 @@
-﻿using ProtoMsg;
+﻿using GameServer.Match;
+using ProtoMsg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace GameServer.Player
         public int session;
         public UserInfo userInfo;
         public RolesInfo rolesInfo;
+        public MatchEntity matchEntity;
 
         public void Destroy()
         {
