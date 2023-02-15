@@ -45,6 +45,11 @@ public class DBRolesInfo : DBBase<DBRolesInfo>
         return RolesInfo;
     }
 
+    internal bool Select(object mysqlCMD)
+    {
+        throw new NotImplementedException();
+    }
+
     //查询 根据ID -> 条件  查询后返回一个类 Single
     public List<RolesInfo> SelectList(string sql)
     {

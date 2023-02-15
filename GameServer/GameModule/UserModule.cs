@@ -1,4 +1,5 @@
 ﻿using GameServer.Net;
+using GameServer.Player;
 using MobaServer.MySql;
 using ProtoMsg;
 using System;
@@ -56,10 +57,16 @@ namespace GameServer.GameModule
             {
                 s2cMSG.UserInfo = userInfo;
                 s2cMSG.Result = 0; //登陆成功
+                PlayerMgr.Add(req.session, s2cMSG.UserInfo.ID, new PlayerEntity() { 
+                    userInfo = s2cMSG.UserInfo,
+                    session = req.session,
+                });
                 RolesInfo rolesInfo = DBRolesInfo.Instance.Select(MySqlCMD.Where("ID", s2cMSG.UserInfo.ID));
                 if (rolesInfo!=null)
                 {
                     s2cMSG.RolesInfo = rolesInfo;
+                    PlayerEntity playerEntity = PlayerMgr.GetPlayerEntityFromSession(req.session);
+                    playerEntity.rolesInfo = rolesInfo;
                 }
             }
             else
