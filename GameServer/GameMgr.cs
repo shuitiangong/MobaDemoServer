@@ -41,6 +41,7 @@ namespace GameServer
             UserModule.Instance.Init();
             RolesModule.Instance.Init();
             LobbyModule.Instance.Init();
+            RoomMudle.Instance.Init();
         }
     }
 }

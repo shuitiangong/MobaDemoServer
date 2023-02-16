@@ -1,4 +1,5 @@
 ﻿using GameServer.Match;
+using GameServer.Room;
 using ProtoMsg;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace GameServer.Player
         public UserInfo userInfo;
         public RolesInfo rolesInfo;
         public MatchEntity matchEntity;
+        public RoomEntity roomEntity;
+        public int TeamID;
 
         public void Destroy()
         {

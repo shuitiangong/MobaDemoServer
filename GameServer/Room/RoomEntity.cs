@@ -32,7 +32,7 @@ namespace GameServer.Room
         /// <summary>
         /// 角色初始化
         /// </summary>
-        void PlayerInit()
+        private void PlayerInit()
         {
 
             for (int i = 0; i<roomInfo.TeamA.Count; i++)
@@ -47,6 +47,8 @@ namespace GameServer.Room
                 playerList.TryAdd(playerInfo.RolesInfo.RolesID, playerInfo);
                 UClient client = GameMgr.uSocket.GetClient(PlayerMgr.GetPlayerEntityFromRolesID(playerInfo.RolesInfo.RolesID).session);
                 clientList.TryAdd(playerInfo.RolesInfo.RolesID, client);
+                //加载进度
+                playerProgress.TryAdd(playerInfo.RolesInfo.RolesID, 0);
 
             }
             for (int i = 0; i < roomInfo.TeamB.Count; i++)
@@ -61,7 +63,11 @@ namespace GameServer.Room
                 playerList.TryAdd(playerInfo.RolesInfo.RolesID, playerInfo);
                 UClient client = GameMgr.uSocket.GetClient(PlayerMgr.GetPlayerEntityFromRolesID(playerInfo.RolesInfo.RolesID).session);
                 clientList.TryAdd(playerInfo.RolesInfo.RolesID, client);
+                //加载进度
+                playerProgress.TryAdd(playerInfo.RolesInfo.RolesID, 0);
             }
+
+            
         }
         /// <summary>
         /// 整个房间的初始化
@@ -94,7 +100,7 @@ namespace GameServer.Room
         }
 
         #region 广播的接口
-        private void Broadcast(int messageID, IMessage s2cMSG)
+        public void Broadcast(int messageID, IMessage s2cMSG)
         {
             foreach (var client in clientList.Values)
             {
@@ -103,7 +109,7 @@ namespace GameServer.Room
             }
         }
 
-        private void Broadcast(int teamID, int messageID, IMessage s2cMSG)
+        public void Broadcast(int teamID, int messageID, IMessage s2cMSG)
         {
             if (teamID==0)
             {
@@ -130,6 +136,84 @@ namespace GameServer.Room
                 }
             }
         }
+        #endregion
+        public void LockHero(int rolesID, int heroID)
+        {
+            lockCount++;
+            playerList[rolesID].HeroID = heroID;
+        }
+        /// <summary>
+        /// 更新召唤师技能
+        /// </summary>
+        /// <param name="rolesID"></param>
+        /// <param name="skillID"></param>
+        /// <param name="gridID"></param>
+        /// 
+        public void UpdateSkill(int rolesID, int skillID, int gridID)
+        {
+            if (gridID==0)
+            {
+                playerList[rolesID].SkillA = skillID;
+            }
+            else
+            {
+                playerList[rolesID].SkillB = skillID;
+            }
+        }
+        /// <summary>
+        /// 更新所有用户的进度
+        /// </summary>
+        /// <param name="rolesID"></param>
+        /// <param name="progress"></param>
+        public bool UpdateLoadProgress(int rolesID, int progress)
+        {
+            if (isLoadComplete)
+            {
+                return true;
+            }
+            playerProgress[rolesID] = progress;
+            if (isLoadComplete==false)
+            {
+                foreach(var player in playerProgress.Values)
+                {
+                    if (player<=100)
+                    {
+                        return false;
+                    }
+                }
+                isLoadComplete = true;
+                //告诉所有客户端都加载完成了
+                RoomLoadProgressS2C s2cMSG = new RoomLoadProgressS2C();
+                s2cMSG.IsBattleStart = true;
+                foreach (var item in playerProgress.Keys)
+                {
+                    s2cMSG.RolesID.Add(item);
+                    s2cMSG.LoadProgress.Add(playerProgress[item]);
+                }
+                Broadcast(1406, s2cMSG);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 获取所有用户加载进度
+        /// </summary>
+        /// <param name="s2cMSG"></param>
+        public void GetLoadProgress(ref RoomLoadProgressS2C s2cMSG)
+        {
+            foreach (var item in playerProgress.Keys)
+            {
+                s2cMSG.RolesID.Add(item);
+                s2cMSG.LoadProgress.Add(playerProgress[item]);
+            }
+        }
+
+        /// <summary>
+        /// 房间关闭时销毁
+        /// </summary>
+        public void Close()
+        {
+
+        }
     }
-    #endregion
 }
