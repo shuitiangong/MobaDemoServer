@@ -57,8 +57,8 @@ namespace GameServer.GameModule
             {
                 s2cMSG.UserInfo = userInfo;
                 s2cMSG.Result = 0; //登陆成功
-                PlayerMgr.Add(req.session, s2cMSG.UserInfo.ID, new PlayerEntity() { 
-                    userInfo = s2cMSG.UserInfo,
+                PlayerMgr.Add(req.session, userInfo.ID, new PlayerEntity() { 
+                    userInfo = userInfo,
                     session = req.session,
                 });
                 RolesInfo rolesInfo = DBRolesInfo.Instance.Select(MySqlCMD.Where("ID", s2cMSG.UserInfo.ID));

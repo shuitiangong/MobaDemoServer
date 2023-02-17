@@ -36,6 +36,7 @@ namespace GameServer.GameModule
             RoomSelectHeroSkillC2S c2sMSG = ProtobufHelper.FromBytes<RoomSelectHeroSkillC2S>(req.proto);
             RoomSelectHeroSkillS2C s2cMSG = new RoomSelectHeroSkillS2C();
             s2cMSG.GridID = c2sMSG.GridID;
+            s2cMSG.SkillID = c2sMSG.SkillID;
             PlayerEntity p = PlayerMgr.GetPlayerEntityFromSession(req.session);
             s2cMSG.RolesID = p.rolesInfo.RolesID;
             //缓存角色技能

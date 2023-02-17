@@ -38,16 +38,17 @@ namespace GameServer.Room
                 s2cMSG.RoomInfo = roomInfo;
                 roomEntity.Broadcast(1301, s2cMSG);
             }
+
             for (int i = 0; i<teamA.Count; i++)
             {
                 teamA[i].player.matchEntity = null;
-                teamA[i].player.roomEntity = null;
+                teamA[i].player.roomEntity = roomEntity;
                 teamA[i].player.TeamID = 0;
             }
             for (int i = 0; i < teamB.Count; i++)
             {
                 teamB[i].player.matchEntity = null;
-                teamB[i].player.roomEntity = null;
+                teamB[i].player.roomEntity = roomEntity;
                 teamB[i].player.TeamID = 0;
             }
         }

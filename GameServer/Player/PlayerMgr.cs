@@ -15,6 +15,7 @@ namespace GameServer.Player
             = new ConcurrentDictionary<int, PlayerEntity>();
         public static void Add(int session, int rolesID, PlayerEntity player)
         {
+            Debug.Log($"Add player: {session}, {rolesID}");
             playerList.TryAdd(rolesID, player);
             playerSession.TryAdd(session, player);
         }
@@ -28,14 +29,16 @@ namespace GameServer.Player
         public static bool RemoveFromRolesID(int rolesID)
         {
             PlayerEntity player;
-            return playerSession.TryRemove(rolesID, out player);
+            return playerList.TryRemove(rolesID, out player);
         }
 
         public static PlayerEntity GetPlayerEntityFromSession(int session)
         {
+            Debug.Log($"PE:        sessionID:{session}");
             PlayerEntity player;
             if (playerSession.TryGetValue(session, out player))
             {
+                Debug.Log($"获取到了， {session}");
                 return player;
             }
             else
@@ -46,9 +49,11 @@ namespace GameServer.Player
 
         public static PlayerEntity GetPlayerEntityFromRolesID(int rolesID)
         {
+            Debug.Log($"PE:        rolesID:{rolesID}");
             PlayerEntity player;
-            if (playerSession.TryGetValue(rolesID, out player))
+            if (playerList.TryGetValue(rolesID, out player))
             {
+                Debug.Log($"获取到了， {rolesID}");
                 return player;
             }
             else
