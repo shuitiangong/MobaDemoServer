@@ -31,6 +31,8 @@ namespace GameServer.GameModule
             matchEntity.TeamID = player.rolesInfo.RolesID;
             matchEntity.player = player;
             BufferFactory.CreateAndSendPackage(req, s2cMSG);
+            //让角色进入匹配状态
+            MatchMgr.Instance.Add(matchEntity);
         }
 
         private void HandleLobbyQuitMatchC2S(BufferEntity req)

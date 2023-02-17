@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.Player;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net;
@@ -129,6 +130,13 @@ namespace GameServer.Net
         internal void Close()
         {
             isConnect = false;
+            //客户端断开的时候，清理掉缓存
+            if (PlayerMgr.GetPlayerEntityFromSession(session)!=null)
+            {
+                int rolesID = PlayerMgr.GetPlayerEntityFromSession(session).rolesInfo.RolesID;
+                PlayerMgr.RemoveFromRolesID(rolesID);
+                PlayerMgr.RemoveFromSession(session);
+            }
         }
     }
 }

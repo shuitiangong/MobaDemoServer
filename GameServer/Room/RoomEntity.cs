@@ -59,7 +59,7 @@ namespace GameServer.Room
                 playerInfo.SkillB = 106;
                 playerInfo.HeroID = 0; //表示未选择
                 playerInfo.TeamID = 1;
-                playerInfo.PosID = i; //5-9
+                playerInfo.PosID = i+5; //5-9
                 playerList.TryAdd(playerInfo.RolesInfo.RolesID, playerInfo);
                 UClient client = GameMgr.uSocket.GetClient(PlayerMgr.GetPlayerEntityFromRolesID(playerInfo.RolesInfo.RolesID).session);
                 clientList.TryAdd(playerInfo.RolesInfo.RolesID, client);
@@ -176,7 +176,7 @@ namespace GameServer.Room
             {
                 foreach(var player in playerProgress.Values)
                 {
-                    if (player<=100)
+                    if (player<100)
                     {
                         return false;
                     }
