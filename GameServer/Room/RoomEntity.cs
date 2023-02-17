@@ -22,6 +22,13 @@ namespace GameServer.Room
         ConcurrentDictionary<int, int> playerProgress = new ConcurrentDictionary<int, int>();
         bool isLoadComplete = false;
 
+        public void HandleBattleUserInputC2S(BattleUserInputC2S c2sMSG)
+        {
+            BattleUserInputS2C s2cMSG = new BattleUserInputS2C();
+            s2cMSG.CMD = c2sMSG;
+            Broadcast(1500, s2cMSG); //可以定一个延时
+        }
+
         public RoomEntity(RoomInfo roomInfo)
         {
             this.roomID = roomInfo.ID;
