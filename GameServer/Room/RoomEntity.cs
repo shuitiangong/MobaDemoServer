@@ -14,7 +14,7 @@ namespace GameServer.Room
     public class RoomEntity
     {
         public int roomID;
-        public int selectHeroTime = 10000;
+        public int selectHeroTime = 30000;
         public RoomInfo roomInfo;
         ConcurrentDictionary<int, PlayerInfo> playerList = new ConcurrentDictionary<int, PlayerInfo>();
         ConcurrentDictionary<int, UClient> clientList = new ConcurrentDictionary<int, UClient>();
@@ -112,7 +112,6 @@ namespace GameServer.Room
             foreach (var client in clientList.Values)
             {
                 BufferFactory.CreateAndSendPackage(client, messageID, s2cMSG);
-
             }
         }
 
